@@ -1,0 +1,56 @@
+[hidden] { display: none !important; }
+html, body { margin: 0; height: 100%; background: #202124; font-family: Arial, sans-serif; }
+#wallpaper {
+  position: fixed; inset: 0; z-index: 0; background-size: cover; background-position: center;
+  opacity: 0; transition: opacity .35s;
+}
+#wallpaper.on { opacity: 1; }
+#wallpaper::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.22); }
+
+.top-right { position: fixed; top: 12px; right: 16px; z-index: 5; display: flex; align-items: center; gap: 6px; }
+.toplink { color: #fff; text-decoration: none; font-size: 13px; padding: 8px 10px; border-radius: 4px; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+.toplink:hover { background: rgba(255,255,255,.18); }
+.apps-btn { width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; cursor: pointer; display: grid; place-items: center; }
+.apps-btn:hover { background: rgba(255,255,255,.18); }
+.apps-panel { position: absolute; top: 48px; right: 0; width: 340px; max-height: 72vh; overflow-y: auto; background: #fff; border-radius: 10px; box-shadow: 0 6px 24px rgba(0,0,0,.35); padding: 14px 8px; }
+.apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.app { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 4px; text-decoration: none; color: #202124; font-size: 12px; border-radius: 8px; }
+.app:hover { background: #f1f3f4; }
+.app-icon { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 18px; }
+.app-icon img { width: 36px; height: 36px; object-fit: contain; }
+
+.center { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; padding-top: 18vh; }
+/* White logo like Chrome's own custom-background page; delete the ".logo span" rule for the colored one. */
+.logo { font-size: 88px; letter-spacing: -3px; font-weight: 500; user-select: none; margin-bottom: 28px; }
+.logo span { color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.45); }
+.g1 { color: #4285F4; } .g2 { color: #EA4335; } .g3 { color: #FBBC05; } .g4 { color: #34A853; }
+.search { width: min(584px, 90vw); height: 46px; background: #fff; border-radius: 24px; display: flex; align-items: center; gap: 12px; padding: 0 18px; box-sizing: border-box; box-shadow: 0 2px 10px rgba(0,0,0,.3); }
+.search input { flex: 1; border: 0; outline: 0; font-size: 16px; background: transparent; color: #202124; }
+
+.shortcuts { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; width: min(576px, 94vw); }
+.tile { position: relative; width: 112px; }
+.tile-link, .add-tile { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px 0; margin: 0 4px; border-radius: 8px; text-decoration: none; background: none; border: 0; cursor: pointer; font-family: inherit; }
+.tile-link:hover, .add-tile:hover { background: rgba(255,255,255,.15); }
+.circle { width: 48px; height: 48px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 1px 4px rgba(0,0,0,.35); font-weight: 700; font-size: 20px; }
+.circle img { width: 28px; height: 28px; object-fit: contain; }
+.add-tile .circle { background: rgba(255,255,255,.9); }
+.label { color: #fff; font-size: 12px; max-width: 96px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+.more { position: absolute; top: 4px; right: 8px; width: 24px; height: 24px; border: 0; border-radius: 50%; background: rgba(32,33,36,.75); color: #fff; cursor: pointer; font-size: 16px; line-height: 24px; padding: 0; display: none; }
+.tile:hover .more { display: block; }
+
+.menu { position: fixed; z-index: 20; background: #fff; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.35); padding: 6px 0; min-width: 150px; }
+.menu button { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 9px 16px; font-size: 14px; cursor: pointer; color: #202124; }
+.menu button:hover { background: #f1f3f4; }
+
+.backdrop { position: fixed; inset: 0; z-index: 30; background: rgba(0,0,0,.5); display: grid; place-items: center; }
+.dialog { background: #fff; border-radius: 12px; padding: 22px; width: min(340px, 90vw); box-sizing: border-box; color: #202124; }
+.dialog h2 { margin: 0 0 14px; font-size: 18px; font-weight: 500; }
+.dialog label { display: block; font-size: 12px; color: #5f6368; margin-bottom: 12px; }
+.dialog input { display: block; width: 100%; box-sizing: border-box; margin-top: 4px; padding: 10px; font-size: 14px; border: 1px solid #dadce0; border-radius: 6px; outline: 0; }
+.dialog input:focus { border-color: #1a73e8; }
+.error { color: #d93025; font-size: 12px; margin: 0 0 10px; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px; }
+.dialog-actions button { border: 0; background: none; color: #1a73e8; font-size: 14px; padding: 8px 14px; border-radius: 18px; cursor: pointer; }
+.dialog-actions button:hover { background: #f1f3f4; }
+.dialog-actions .primary { background: #1a73e8; color: #fff; }
+.dialog-actions .primary:hover { background: #1765cc; }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <div id="wallpaper"></div>
+
+  <header class="top-right">
+    <a class="toplink" href="https://mail.google.com">Gmail</a>
+    <a class="toplink" href="https://www.google.com/imghp">Images</a>
+    <button id="apps-btn" class="apps-btn" aria-label="Google apps">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff">
+        <circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/>
+        <circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/>
+        <circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
+      </svg>
+    </button>
+    <div id="apps-panel" class="apps-panel" hidden><div id="apps-grid" class="apps-grid"></div></div>
+  </header>
+
+  <main class="center">
+    <div class="logo" aria-label="Google"><span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g1">g</span><span class="g4">l</span><span class="g2">e</span></div>
+    <form id="search-form" class="search" action="https://www.google.com/search" method="get">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="#9aa0a6"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input id="q" name="q" type="text" placeholder="Search Google or type a URL" autocomplete="off" autofocus>
+    </form>
+    <nav id="shortcuts" class="shortcuts"></nav>
+  </main>
+
+  <div id="menu" class="menu" hidden>
+    <button type="button" id="menu-edit">Edit shortcut</button>
+    <button type="button" id="menu-remove">Remove</button>
+  </div>
+
+  <div id="backdrop" class="backdrop" hidden>
+    <form id="dialog" class="dialog">
+      <h2 id="dialog-title">Add shortcut</h2>
+      <label>Name<input id="sc-name" type="text" maxlength="40" autocomplete="off"></label>
+      <label>URL<input id="sc-url" type="text" placeholder="https://example.com" autocomplete="off"></label>
+      <p id="sc-error" class="error" hidden></p>
+      <div class="dialog-actions">
+        <button type="button" id="sc-cancel">Cancel</button>
+        <button type="submit" class="primary">Done</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="newtab.js"></script>
+</body>
+</html>

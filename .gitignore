@@ -1,0 +1,7 @@
+# Personal wallpapers stay out of the repository
+images/*
+!images/README.txt
+
+# OS files
+.DS_Store
+Thumbs.db
